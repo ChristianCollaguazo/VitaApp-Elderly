@@ -1,0 +1,15 @@
+.global__container {
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 100%;
+
+  height: calc(100vh - 48px - 1.5rem);
+  @include respond-md {
+    padding-left: 1rem;
+    height: calc(100vh - 48px);
+  }
+  .categories__container {
+    height: 100%;
+  }
+}

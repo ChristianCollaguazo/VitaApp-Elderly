@@ -1,1 +1,279 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@import "assets/scss/bootstrap/scss/bootstrap.scss";
+@import "assets/scss/mixins/respond-to";
+@import "assets/scss/mixins/gap";
+@import "assets/scss/variables";
+@import "assets/scss/header";
+@import "assets/scss/footer";
+@import "assets/scss/input";
+@import "assets/scss/scrollbar";
+@import "assets/scss/form";
+@import "assets/scss/color-radio";
+
+$gap: 0.5rem;
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Oswald", sans-serif !important;
+  font-weight: 200;
+  background-color: #f5f7fa;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Oswald", sans-serif !important;
+  font-weight: 500;
+}
+
+$custom-typography: mat-typography-config(
+  $font-family: "Oswald, sans-serif",
+  $headline: mat-typography-level($h1-font-size),
+  $title: mat-typography-level($h2-font-size),
+  $subheading-2: mat-typography-level($h3-font-size),
+  $subheading-1: mat-typography-level($h4-font-size),
+  $body-1: mat-typography-level($font-size-base),
+  $body-2: mat-typography-level($font-size-base),
+);
+
+@include angular-material-typography($custom-typography);
+
+.btn-secondary {
+  color: #fff;
+}
+
+.a__click {
+  text-decoration: underline;
+  cursor: pointer;
+  transition: 0.3s;
+  color: black;
+  text-underline-offset: 3px;
+  &:hover {
+    color: $primary;
+  }
+}
+
+.flaticon {
+  font-family: "Flaticon";
+  line-height: 1;
+}
+
+// *-------------------------------Nav Top---------------------------------
+.nav__top {
+  background-color: $gray-900;
+  height: 48px;
+  overflow: hidden;
+  ul {
+    padding: 0.3rem 1rem;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+
+    li {
+      margin-left: 0.5rem;
+      min-width: 100px;
+      button {
+        color: #fff;
+        border-bottom: 1px solid white;
+        border-radius: 0px;
+        width: 100%;
+        &:hover {
+          color: $primary;
+        }
+      }
+    }
+  }
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  font-size: 0.8rem;
+}
+
+.p-component {
+  font-family: "Oswald", sans-serif !important;
+}
+
+.p-fieldset-toggleable {
+  border: 1px solid $gray-200;
+  background-color: white;
+  border-radius: 4px;
+
+  .p-fieldset-legend {
+    list-style-type: none;
+    // display: flex;
+    margin: 0;
+    .ng-star-inserted {
+      padding-left: 0.3rem;
+    }
+    a {
+      position: relative;
+      background-color: $gray-900;
+      color: #fff !important;
+      padding: 1rem 1rem;
+
+      font-size: $font-size-base;
+      &::after {
+        position: absolute;
+        z-index: 20;
+        bottom: 0px;
+        left: 0;
+        content: "";
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-position: 0% 0%;
+        background: linear-gradient(
+          to right,
+          #b294ff,
+          #57e6e6,
+          #feffb8,
+          #57e6e6,
+          #b294ff,
+          #57e6e6
+        );
+        background-size: 500% auto;
+        animation: gradient 3s linear infinite;
+      }
+
+      .ng-star-inserted {
+        border: none;
+      }
+      &:hover {
+        color: $gray-200;
+      }
+    }
+  }
+  .p-fieldset-content {
+    padding: 1rem;
+  }
+}
+
+// gradient animation
+@keyframes gradient {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+.p-splitter-gutter {
+  background-color: $gray-300;
+  height: 16px !important;
+  .p-splitter-gutter-handle {
+    background-color: $gray-900;
+  }
+}
+.p-splitter-panel {
+  max-height: 100%;
+
+  overflow: hidden;
+}
+.content_p-panel {
+  width: 100%;
+  max-height: 100%;
+  overflow-y: scroll;
+}
+
+.content__cards {
+  @include gap;
+  .content__card {
+    @include gap-separation;
+    width: 100%;
+    @include respond-lg {
+      width: calc(50% - #{$gap});
+    }
+
+    @include respond-xl {
+      width: calc(33.33333% - #{$gap});
+    }
+
+    & > div {
+      width: 100%;
+    }
+  }
+
+  .content-pictogram__card {
+    @include gap-separation;
+
+    width: calc(33.33333% - #{$gap});
+    @include respond-xs {
+      width: calc(25% - #{$gap});
+    }
+    @include respond-sm {
+      width: calc(20% - #{$gap});
+    }
+
+    @include respond-md {
+      width: calc(16.6666% - #{$gap});
+    }
+
+    @include respond-lg {
+      width: calc(14.2857% - #{$gap});
+    }
+
+    @include respond-xl {
+      width: calc(12.5% - #{$gap});
+    }
+
+    & > div {
+      width: 100%;
+    }
+  }
+
+  .content-pictogram-grid__card {
+    @include gap-separation;
+    width: calc(33.33333% - #{$gap});
+    @include respond-xs {
+      width: calc(25% - #{$gap});
+    }
+    @include respond-sm {
+      width: calc(20% - #{$gap});
+    }
+
+    @include respond-md {
+      width: calc(25% - #{$gap});
+    }
+
+    @include respond-lg {
+      width: calc(20% - #{$gap});
+    }
+
+    @include respond-xl {
+      width: calc(16.6666% - #{$gap});
+    }
+
+    & > div {
+      width: 100%;
+    }
+  }
+}
+
+.submenu {
+  position: fixed;
+  right: 0rem;
+  bottom: calc(5rem + 60px);
+}
+
+.card {
+  background-color: transparent !important;
+  border-radius: 1rem !important;
+  border: 1px solid black;
+  overflow: hidden !important;
+}
+
+.move {
+  .card {
+    cursor: move !important;
+  }
+}

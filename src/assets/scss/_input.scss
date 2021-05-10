@@ -1,0 +1,38 @@
+.input__border::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background-position: 0% 0%;
+  background: linear-gradient(
+    to right,
+    #b294ff,
+    #57e6e6,
+    #feffb8,
+    #57e6e6,
+    #b294ff,
+    #57e6e6
+  );
+  background-size: 500% auto;
+  animation: gradient 3s linear infinite;
+}
+
+input.form-control {
+  border-style: none;
+  outline: none;
+  border-radius: 0px;
+}
+
+// colors
+$input-background: rgba(57, 63, 84, 0.8);
+$input-text-inactive: #7881a1;
+$input-text-active: #bfd2ff;
+
+// gradient animation
+@keyframes gradient {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}

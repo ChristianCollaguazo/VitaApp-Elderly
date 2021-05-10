@@ -1,0 +1,22 @@
+.color__container {
+  @include gap;
+  flex-wrap: wrap;
+  .color__item {
+    @include gap-separation;
+    position: relative;
+    label {
+      height: 2.5rem;
+      width: 2.5rem;
+      border: 2px solid $secondary;
+      border-radius: 0.5rem;
+    }
+    input[type="radio"] {
+      position: absolute;
+      left: -1000em;
+
+      &:checked ~ label {
+        border: 5px solid $primary;
+      }
+    }
+  }
+}

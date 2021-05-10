@@ -1,0 +1,11 @@
+@mixin gap($gap: 0.5rem) {
+  display: inline-flex;
+  flex-wrap: wrap;
+  // justify-content: center;
+  margin: (-$gap) 0rem 0rem (-$gap);
+  width: calc(100% + 0.5rem);
+}
+
+@mixin gap-separation($gap: 0.5rem) {
+  margin: $gap 0px 0px $gap;
+}

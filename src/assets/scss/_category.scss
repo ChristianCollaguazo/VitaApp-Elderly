@@ -1,0 +1,45 @@
+@import "mixins/respond-to";
+.category {
+  display: flex;
+  background: lighten($color: $primary, $amount: 20%);
+  cursor: pointer;
+  border-radius: 8px;
+  .category__image {
+    width: 30%;
+    margin-right: 0.5rem;
+    border-right: 2px solid black;
+
+    @include respond-sm {
+      width: 20%;
+    }
+
+    @include respond-lg {
+      width: 30%;
+    }
+
+    @include respond-xl {
+      width: 20%;
+    }
+    img {
+      width: 100%;
+    }
+  }
+  .category__info {
+    width: calc(70% - 0.5rem);
+
+    @include respond-sm {
+      width: calc(80% - 0.5rem);
+    }
+
+    @include respond-lg {
+      width: calc(70% - 0.5rem);
+    }
+
+    @include respond-xl {
+      width: calc(80% - 0.5rem);
+    }
+    padding: 0.5rem 0.5rem 0.5rem 0rem;
+  }
+
+
+}

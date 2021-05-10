@@ -1,0 +1,26 @@
+@import "mixins/gap";
+@import "mixins/respond-to";
+.pictogram-grid {
+  @include gap;
+  .pictogram {
+    @include gap-separation;
+    width: 33.3333%;
+    font-size: .8rem;
+    @include respond-xs {
+      width: 16.66666%;
+      font-size: 1rem;
+    }
+    @include respond-sm {
+      width: 16.66666%;
+    }
+    @include respond-md {
+      width: 14.28%;
+    }
+    @include respond-lg {
+      width: 12.5%;
+    }
+    @include respond-xl {
+      width: 10.28%;
+    }
+  }
+}

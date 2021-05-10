@@ -1,0 +1,12 @@
+.form__btn {
+  text-align: center;
+  button {
+    margin: 0.25rem;
+  }
+
+  @include respond-md {
+    button {
+      min-width: 200px;
+    }
+  }
+}
