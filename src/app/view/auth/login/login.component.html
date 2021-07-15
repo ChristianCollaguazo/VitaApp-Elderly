@@ -1,0 +1,31 @@
+<content class="global__container">
+  <app-header></app-header>
+  <section class="login__content">
+    <div class="form-login">
+      <h2 class="mb-4">Ingrese su nombre de usuario</h2>
+      <form [formGroup]="formLogin" (ngSubmit)="logIn()">
+        <div class="form-group">
+          <input
+            type="text"
+            name=""
+            id=""
+            class="form-control"
+            placeholder="Nombre de usuario"
+            formControlName="username"
+            [class.is-invalid]="invalidUsername"
+            autofocus
+          />
+          <small
+            class="text-danger small-text mt-2 d-block"
+            *ngIf="invalidUsername"
+            >Ingrese un nombre de usuario</small
+          >
+        </div>
+        <div class="mt-4">
+          <button type="submit" class="btn btn-primary">Ingresar</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</content>
+<p-toast key="toastLogin" position="top-right"></p-toast>

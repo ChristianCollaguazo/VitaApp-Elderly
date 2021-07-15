@@ -1,0 +1,76 @@
+<div class="header-layout m-0">
+  <div class="btn btn-pictogram bg-return" routerLink="/categorias" (click)="textToVoice('Categorias')">
+    <div class="btn-image">
+      <img src="assets/Images/pictogramas/tablero.png" alt="Salir de la pagina web" />
+    </div>
+    <div class="btn-text">Categorias</div>
+  </div>
+  <app-header [show]="false"></app-header>
+</div>
+<div class="global__container" #globalContainer>
+  <div class="board__options">
+    <div #message class="message">
+      <div class="content__cards">
+        <div class="content-pictogram-grid__card" *ngFor="let pictogram of pictogramsMessage; let i = index">
+          <div>
+            <app-card [pictogramView]="pictogram"></app-card>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pictograms-message">
+      <div class="content__cards">
+        <div class="content-pictogram-grid__card" (click)="textToVoice('Borrar.')">
+          <app-card [pictogramView]="pictogramDelete" (click)="deleteLastPictogram()"></app-card>
+        </div>
+        <div class="content-pictogram-grid__card" (click)="textToVoice('Borrar todo.')">
+          <app-card [pictogramView]="pictogramAll" (click)="deleteAllPictogram()"></app-card>
+        </div>
+        <div class="content-pictogram-grid__card" (click)="textToVoice('Enviar.')">
+          <app-card [pictogramView]="pictogramSend" (click)="sendMessage()"></app-card>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr class="d-md-none" />
+  <section #gridContent class="grid__content">
+    <div class="subcategories d-md-none">
+      <div class="content__cards">
+        <div class="content-pictogram-grid__card" *ngFor="let subcategory of subcategories; let i = index">
+          <div (click)="getPictograms(subcategory.subcategoryCarerId)">
+            <app-card [pictogramView]="subcategory" (click)="getPictograms(subcategory.subcategoryCarerId)"></app-card>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="d-md-none" />
+    <div class="ayudas" style="background-color: #e6e6e6">
+      <div class="content__cards">
+        <div class="content-pictogram-grid__card" *ngFor="let pictogram of pictogramsHelper; let i = index">
+          <div (click)="textToVoice(pictogram.name)">
+            <app-card [pictogramView]="pictogram" (click)="addPictogramMessage(pictogram)"></app-card>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="d-md-none" />
+    <div class="pictogramas" style="background-color: #c4c4c4">
+      <div class="content__cards">
+        <div class="content-pictogram-grid__card" *ngFor="let pictogram of pictograms; let i = index">
+          <div (click)="textToVoice(pictogram.name)">
+            <app-card [pictogramView]="pictogram" (click)="addPictogramMessage(pictogram)"></app-card>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="subcategories d-none d-md-block" style="background-color: #9e9e9e">
+      <div class="content__cards">
+        <div class="content-pictogram-grid__card" *ngFor="let subcategory of subcategories; let i = index">
+          <div (click)="textToVoice(subcategory.name)">
+            <app-card [pictogramView]="subcategory" (click)="getPictograms(subcategory.subcategoryCarerId)"></app-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,6 +1,7 @@
 @import "variables";
 .card {
   cursor: pointer;
+
   .gestion {
     display: flex;
     margin-top: 0.5rem;
@@ -12,7 +13,6 @@
       &:hover {
         background-color: $maize-croyola;
       }
-
     }
   }
 }

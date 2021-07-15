@@ -1,0 +1,85 @@
+@import "../../../../assets/scss/mixins/respond-to";
+@import "../../../../assets/scss/mixins/gap";
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.global__container {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  .grid__content {
+    flex: 1 1 auto;
+
+    @include respond-md {
+      padding-left: 0;
+      display: flex;
+      flex-direction: row;
+      .subcategories {
+        width: 11.111111%;
+      }
+      .ayudas,
+      .pictogramas {
+        width: calc(11.111111% * 4);
+      }
+      .subcategories,
+      .ayudas,
+      .pictogramas {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+    }
+    @include respond-xl {
+      .subcategories {
+        width: 7.6923%;
+      }
+      .ayudas,
+      .pictogramas {
+        width: calc(7.6923% * 6);
+      }
+    }
+  }
+}
+
+.board__options {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.25rem;
+
+  .message {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: 1px solid #000;
+    overflow-x: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .content__cards {
+      flex-wrap: nowrap;
+
+      position: relative;
+      width: auto;
+      height: auto;
+    }
+  }
+  @include respond-md {
+    flex-direction: row;
+    .message {
+      padding: 0;
+      background: #fff;
+      border: 1px solid #000;
+      .content__cards {
+      }
+    }
+    .pictograms-message {
+      flex-grow: 1;
+    }
+  }
+}

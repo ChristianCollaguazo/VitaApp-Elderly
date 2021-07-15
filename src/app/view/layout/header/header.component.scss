@@ -1,0 +1,18 @@
+@import "../../../../assets/scss/mixins/respond-to";
+@import "../../../../assets/scss/variables";
+.global__header {
+  display: flex;
+  justify-content: center;
+  @include respond-md {
+    justify-content: space-between;
+  }
+
+  padding: $header-padding;
+  .logo {
+    height: $header-content-height;
+    img {
+      height: 100%;
+    }
+  }
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+}

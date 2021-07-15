@@ -1,0 +1,27 @@
+<div class="header-layout">
+  <div class="btn btn-pictogram bg-logout" (click)="logout()">
+    <div class="btn-image">
+      <img
+        src="assets/Images/pictogramas/salir.png"
+        alt="Salir de la pagina web"
+      />
+    </div>
+    <div class="btn-text">Salir</div>
+  </div>
+  <app-header [show]="false"></app-header>
+</div>
+<section class="container">
+  <div class="category-container">
+    <h2>Tableros</h2>
+    <div class="content__cards">
+      <div class="content__card" *ngFor="let category of categoriesCarer">
+        <div>
+          <app-card
+            [categoryView]="category"
+            (clickContent)="openBoard(category.categoryCarerId, category.name)"
+          ></app-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
