@@ -9,6 +9,16 @@
 </div>
 <div class="global__container" #globalContainer>
   <div class="board__options">
+    <div class="pictograms-message">
+      <div class="content__cards">
+        <div class="content-pictogram-grid__card" (click)="textToVoice('Borrar.')">
+          <app-card [pictogramView]="pictogramDelete" (click)="deleteLastPictogram()"></app-card>
+        </div>
+        <div class="content-pictogram-grid__card" (click)="textToVoice('Borrar todo.')">
+          <app-card [pictogramView]="pictogramAll" (dblclick)="deleteAllPictogram()"></app-card>
+        </div>
+      </div>
+    </div>
     <div #message class="message">
       <div class="content__cards">
         <div class="content-pictogram-grid__card" *ngFor="let pictogram of pictogramsMessage; let i = index">
@@ -20,12 +30,7 @@
     </div>
     <div class="pictograms-message">
       <div class="content__cards">
-        <div class="content-pictogram-grid__card" (click)="textToVoice('Borrar.')">
-          <app-card [pictogramView]="pictogramDelete" (click)="deleteLastPictogram()"></app-card>
-        </div>
-        <div class="content-pictogram-grid__card" (click)="textToVoice('Borrar todo.')">
-          <app-card [pictogramView]="pictogramAll" (click)="deleteAllPictogram()"></app-card>
-        </div>
+
         <div class="content-pictogram-grid__card" (click)="textToVoice('Enviar.')">
           <app-card [pictogramView]="pictogramSend" (click)="sendMessage()"></app-card>
         </div>
