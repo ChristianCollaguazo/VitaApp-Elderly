@@ -148,15 +148,19 @@ export class BoardComponent implements OnInit, AfterViewInit, AfterViewChecked {
         }px + 0.5rem)`;
       }
     } else if (widthWindow >= 365) {
-      this.message.nativeElement.style.width = `100vw`;
-      this.message.nativeElement.style.height = `calc(${
-        (widthGridContent * 25) / 100
-      }px + 0.5rem)`;
+      if (this.message) {
+        this.message.nativeElement.style.width = `100vw`;
+        this.message.nativeElement.style.height = `calc(${
+          (widthGridContent * 25) / 100
+        }px + 0.5rem)`;
+      }
     } else {
-      this.message.nativeElement.style.width = `100vw`;
-      this.message.nativeElement.style.height = `calc(${
-        (widthGridContent * 33.333333) / 100
-      }px + 0.5rem)`;
+      if (this.message) {
+        this.message.nativeElement.style.width = `100vw`;
+        this.message.nativeElement.style.height = `calc(${
+          (widthGridContent * 33.333333) / 100
+        }px + 0.5rem)`;
+      }
     }
   }
 
