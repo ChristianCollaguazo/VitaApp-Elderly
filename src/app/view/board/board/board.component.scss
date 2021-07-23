@@ -47,9 +47,12 @@
 }
 
 .board__options {
-  display: flex;
-  flex-direction: column;
+  @include gap;
+
   margin-bottom: 0.25rem;
+  .board__option {
+    @include gap-separation;
+  }
 
   .message {
     display: flex;
@@ -75,8 +78,6 @@
       padding: 0;
       background: #fff;
       border: 1px solid #000;
-      .content__cards {
-      }
     }
     .pictograms-message {
       flex-grow: 1;

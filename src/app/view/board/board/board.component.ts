@@ -45,6 +45,8 @@ export class BoardComponent implements OnInit, AfterViewInit, AfterViewChecked {
   @ViewChild('message') message: ElementRef<HTMLElement>;
   resizeObserver: any;
 
+  positionsPanel = [];
+
   pictogramDelete: Pictogram = {
     name: 'Borrar',
     imageUrl: 'assets/Images/delete.png',
@@ -125,34 +127,33 @@ export class BoardComponent implements OnInit, AfterViewInit, AfterViewChecked {
     }
     if (widthWindow >= 1200) {
       if (this.message) {
-        this.message.nativeElement.style.width = `calc(100% - 3 * (${
+        this.message.nativeElement.style.width = `calc(100vw - 3 * (${
           (widthGridContent * 7.6923) / 100
         }px - 0.5rem) - 2rem)`;
-        this.message.nativeElement.style.marginRight = '0.5rem';
-        this.message.nativeElement.style.height = '';
+        this.message.nativeElement.style.height = '100%';
       }
     } else if (widthWindow >= 768) {
       if (this.message) {
-        this.message.nativeElement.style.width = `calc(100% - 3 * (${
+        this.message.nativeElement.style.width = `calc(100vw - 3 * (${
           (widthGridContent * 11.111111) / 100
         }px - 0.5rem) - 2rem)`;
-        this.message.nativeElement.style.marginRight = '0.5rem';
-        this.message.nativeElement.style.height = '';
+
+        this.message.nativeElement.style.height = '100%';
       }
     } else if (widthWindow >= 576) {
       if (this.message) {
-        this.message.nativeElement.style.width = `100%`;
+        this.message.nativeElement.style.width = `100vw`;
         this.message.nativeElement.style.height = `calc(${
           (widthGridContent * 20) / 100
         }px + 0.5rem)`;
       }
     } else if (widthWindow >= 365) {
-      this.message.nativeElement.style.width = `100%`;
+      this.message.nativeElement.style.width = `100vw`;
       this.message.nativeElement.style.height = `calc(${
         (widthGridContent * 25) / 100
       }px + 0.5rem)`;
     } else {
-      this.message.nativeElement.style.width = `100%`;
+      this.message.nativeElement.style.width = `100vw`;
       this.message.nativeElement.style.height = `calc(${
         (widthGridContent * 33.333333) / 100
       }px + 0.5rem)`;
@@ -176,6 +177,7 @@ export class BoardComponent implements OnInit, AfterViewInit, AfterViewChecked {
       this.carer = data;
       this.getSubcateries();
       this.getCategoryById();
+      this.getPositionAdminPanel();
     });
   }
 
@@ -258,5 +260,15 @@ export class BoardComponent implements OnInit, AfterViewInit, AfterViewChecked {
       this.elderly
     );
     this.firebase.sendNotification(this.carer.uid, this.elderly);
+  }
+
+  getPositionAdminPanel(): void {
+    this.vitaapp.getPositionAdminPanel().subscribe((data) => {
+      if (data.length) {
+        this.positionsPanel = data[0].positions.split('-');
+      } else {
+        this.positionsPanel = ['0', '1', '2', '3'];
+      }
+    });
   }
 }

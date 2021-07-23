@@ -9,33 +9,34 @@
 </div>
 <div class="global__container" #globalContainer>
   <div class="board__options">
-    <div class="pictograms-message">
-      <div class="content__cards">
-        <div class="content-pictogram-grid__card" (click)="textToVoice('Borrar.')">
-          <app-card [pictogramView]="pictogramDelete" (click)="deleteLastPictogram()"></app-card>
-        </div>
-        <div class="content-pictogram-grid__card" (click)="textToVoice('Borrar todo.')">
-          <app-card [pictogramView]="pictogramAll" (dblclick)="deleteAllPictogram()"></app-card>
-        </div>
-      </div>
-    </div>
-    <div #message class="message">
-      <div class="content__cards">
-        <div class="content-pictogram-grid__card" *ngFor="let pictogram of pictogramsMessage; let i = index">
-          <div>
-            <app-card [pictogramView]="pictogram"></app-card>
+    <div class="board__option" *ngFor="let id of positionsPanel; let i = index">
+
+      <div #message class="message" *ngIf="id === '0'">
+        <div class="content__cards">
+          <div class="content-pictogram-grid__card" *ngFor="let pictogram of pictogramsMessage; let i = index">
+            <div>
+              <app-card [pictogramView]="pictogram"></app-card>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="pictograms-message">
-      <div class="content__cards">
 
-        <div class="content-pictogram-grid__card" (click)="textToVoice('Enviar.')">
-          <app-card [pictogramView]="pictogramSend" (click)="sendMessage()"></app-card>
-        </div>
+      <div class="content-pictogram-grid__card" (click)="textToVoice('Borrar.')" *ngIf="id === '1'">
+        <app-card [pictogramView]="pictogramDelete" (click)="deleteLastPictogram()"></app-card>
       </div>
+
+      <div class="content-pictogram-grid__card" (click)="textToVoice('Borrar todo.')" *ngIf="id === '2'">
+        <app-card [pictogramView]="pictogramAll" (dblclick)="deleteAllPictogram()"></app-card>
+      </div>
+
+      <div class="content-pictogram-grid__card" (click)="textToVoice('Enviar.')" *ngIf="id === '3'">
+        <app-card [pictogramView]="pictogramSend" (click)="sendMessage()"></app-card>
+      </div>
+
+
     </div>
+
+
   </div>
   <hr class="d-md-none" />
   <section #gridContent class="grid__content">

@@ -350,4 +350,13 @@ export class VitaappService {
     this.carerInformation = undefined;
     this.elderlyInformation = undefined;
   }
+
+  getPositionAdminPanel(): Observable<any> {
+    if (this.carerInformation && this.carerInformation.carerId) {
+      const PATH = this.concatURL(
+        `/carer/position-first-row/${this.carerInformation.carerId}`
+      );
+      return this.makeGetRequest(PATH);
+    }
+  }
 }

@@ -1,8 +1,4 @@
-<div
-  class="card"
-  *ngIf="category"
-  [ngStyle]="{ 'background-color': '#' + category.color }"
->
+<div class="card" *ngIf="category" [ngStyle]="{ 'background-color': '#' + category.color }">
   <div class="card-content">
     <div class="card-body pb-0">
       <div class="media d-flex" (click)="clickedContent()">
@@ -19,16 +15,13 @@
           <i class="fas fa-trash"></i> Eliminar
         </div>
         <div (click)="clickedEdit()"><i class="fas fa-edit"></i> Modificar</div>
+
       </div>
     </div>
   </div>
 </div>
 
-<div
-  class="card"
-  [ngStyle]="{ 'background-color': '#' + categoryView.color }"
-  *ngIf="categoryView"
->
+<div class="card" [ngStyle]="{ 'background-color': '#' + categoryView.color }" *ngIf="categoryView">
   <div class="card-content">
     <div class="card__close">
       <i class="pi pi-times" *ngIf="showClose" (click)="clickedDelete()"></i>
@@ -46,13 +39,9 @@
     </div>
   </div>
 </div>
-<div
-  class="card"
-  [ngStyle]="{
+<div class="card" [ngStyle]="{
     'background-color': '#' + subcategory.color
-  }"
-  *ngIf="subcategory"
->
+  }" *ngIf="subcategory">
   <div class="card-content">
     <div class="card-body pb-0">
       <div class="media d-flex" (click)="clickedContent()">
@@ -73,11 +62,7 @@
     </div>
   </div>
 </div>
-<div
-  class="card"
-  [ngStyle]="{ 'background-color': '#' + subcategoryView.color }"
-  *ngIf="subcategoryView"
->
+<div class="card" [ngStyle]="{ 'background-color': '#' + subcategoryView.color }" *ngIf="subcategoryView">
   <div class="card-content">
     <div class="card__close">
       <i class="pi pi-times" *ngIf="showClose" (click)="clickedDelete()"></i>
@@ -99,13 +84,9 @@
   </div>
 </div>
 
-<div
-  class="card"
-  [ngStyle]="{
+<div class="card" [ngStyle]="{
     'background-color': '#' + pictogramView.color
-  }"
-  *ngIf="pictogramView"
->
+  }" *ngIf="pictogramView">
   <div class="card-content">
     <div class="card__close">
       <i class="pi pi-times" *ngIf="showClose" (click)="clickedDelete()"></i>
@@ -122,12 +103,9 @@
     </div>
   </div>
 </div>
-<div
-  [ngStyle]="{
+<div [ngStyle]="{
     'background-color': '#' + pictogram.color
-  }"
-  *ngIf="pictogram"
->
+  }" *ngIf="pictogram">
   <div class="card-content">
     <div class="card-body p-0">
       <div class="">
@@ -147,11 +125,7 @@
     </div>
   </div>
 </div>
-<div
-  class="card"
-  *ngIf="helper"
-  [ngStyle]="{ 'background-color': '#' + helper.color }"
->
+<div class="card" *ngIf="helper" [ngStyle]="{ 'background-color': '#' + helper.color }">
   <div class="card-content">
     <div class="card-body pb-0">
       <div class="media d-flex" (click)="clickedContent()">
